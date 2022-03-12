@@ -22,6 +22,7 @@ import "./light-theme.less";
 https://reacttraining.com/blog/react-router-v6-pre/
 
 ### Deployment
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 ### `yarn OR npm i`
 yarn start OR npm  start
 yarn build OR npm run build
