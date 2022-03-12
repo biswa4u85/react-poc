@@ -22,7 +22,7 @@ import "./light-theme.less";
 https://reacttraining.com/blog/react-router-v6-pre/
 
 ### Deployment
-yarn OR npm i
+### `yarn OR npm i`
 yarn start OR npm  start
 yarn build OR npm run build
 
