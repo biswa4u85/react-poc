@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Routers from './navigation/Router'
+import ThemeProvider from './ThemeProvider'
+import i18n from "./i18n";
+import { I18nextProvider } from "react-i18next";
+import { store } from '../src/store';
+import { Provider } from 'react-redux';
+import { saveState } from "../src/utility/browser-storage";
+import { debounce } from "debounce";
+
+store.subscribe(
+  debounce(() => {
+    saveState('redux', store.getState());
+  }, 800)
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <ThemeProvider>
+        <I18nextProvider i18n={i18n}>
+          <Routers />
+        </I18nextProvider>
+      </ThemeProvider>
+    </Provider>
   );
 }
-
 export default App;
