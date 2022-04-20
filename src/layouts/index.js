@@ -18,7 +18,6 @@ function BasicLayout(props) {
       {props.children}
     </I18nextProvider>
   </Provider>
-
   );
 }
 
