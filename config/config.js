@@ -1,5 +1,32 @@
+
+// ref: https://umijs.org/config/
 export default {
-    theme: {
-        'primary-color': '#ff0000',
-    },
-}
+    treeShaking: true,
+    routes: [
+      {
+        path: '/',
+        component: '../layouts/index',
+        routes: [
+          { path: '/', component: '../pages/index' },
+          { path: '/avf', component: '../pages/index' }
+        ]
+      }
+    ],
+    plugins: [
+      // ref: https://umijs.org/plugin/umi-plugin-react.html
+      ['umi-plugin-react', {
+        antd: false,
+        dva: false,
+        dynamicImport: false,
+        title: 'reactpoc',
+        dll: false,
+        
+        routes: {
+          exclude: [
+            /components\//,
+          ],
+        },
+      }],
+    ],
+  }
+  
